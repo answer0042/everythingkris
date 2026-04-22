@@ -1,0 +1,501 @@
+:root {
+    --background: white;
+    --font-color: rgb(16, 16, 16);
+
+    --padding: 0px;
+    --h1-size: 1.3em;
+    --search-input-height: 24px;
+    --section-padding: 10px;
+    --section-h1-padding: 7px calc(var(--section-padding) * .8);
+
+    /* Main base-accent base (H S L). Edit these three to change all base-accent accents together. */
+    --base-accent-h: 95;    /* hue (0-360) */
+    --base-accent-s: 100%;    /* saturation */
+    --base-accent-l: 50%;    /* lightness */
+
+    /* Derived base-accent accents (relative to the main base-accent HSL) */
+    --accent-1: hsl(var(--base-accent-h) calc(var(--base-accent-s) - 40%) calc(var(--base-accent-l) + 10%));
+    --accent-2: hsl(var(--base-accent-h) calc(var(--base-accent-s) - 10%) calc(var(--base-accent-l) - 15%));
+    --accent-3: hsl(var(--base-accent-h) calc(var(--base-accent-s) - 30%) calc(var(--base-accent-l) + 20%));
+    --accent-4: hsl(var(--base-accent-h) calc(var(--base-accent-s) - 45%) calc(var(--base-accent-l) + 0%));
+
+    /* Non-base-accent accents left as explicit colors */
+    --accent-b1: rgb(221, 230, 229);
+    --accent-b2: rgb(161, 182, 175);
+    --accent-c1: rgb(255, 128, 0);
+    --accent-c2: rgb(250, 195, 56);
+
+    --padding: 0px;
+    --h1-size: 1.3em;
+    --search-input-height: 24px;
+    --radius: 40px;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    background-color: var(--background);
+    color: var(--font-color);
+    font-family: 'Verdana', sans-serif;
+    font-size: 8pt;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar, body::-webkit-scrollbar-button, .hidescroll {
+    display: none;
+}
+
+a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.4em;
+    margin: 0;
+}
+
+p + p {
+    margin-top: .3em;
+}
+
+h1 {
+    font-size: var(--h1-size);
+    line-height: 1.4em;
+    margin: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1.5px dotted var(--accent-2);
+    margin: .9em 0 ;
+}
+
+img {
+    image-rendering: crisp-edges;
+}
+
+.smaller {
+    font-size: smaller;
+}
+
+.icon {
+    margin-right: 5px;
+    height: calc(var(--h1-size) * 1);
+}
+
+.intext-icon {
+    height:.8em;
+    vertical-align: middle;
+    padding-left: 1px;
+}
+
+.container {
+    display: grid;
+    position: relative;
+    width: 773px;
+    max-height: 1000px;
+    margin: 5px 0 5px 0;
+    justify-content: center;
+    grid-template-columns: 3fr 2fr;
+    /* rows: header, nav, announcement, then content subdivided so left hero = (row4+row5) */
+    grid-template-rows: 
+        /*1*/   1fr
+        /*2*/   2em
+        /*3*/   2em
+        /*4*/   2fr 
+        /*5*/   1fr
+        /*6*/   1.5fr
+        /*7*/   2fr
+        /*8*/   1fr
+        /*9*/   2fr
+        /*10*/   1fr;
+        /* 10 rows total */
+    row-gap: 0px;
+    column-gap: 10px;
+}
+
+
+header {
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    flex-direction: column-reverse;
+    background-image: url(4u2\ logo.png);
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+
+.widget {
+    grid-area: 1 / 2 / 2 / 3; /* row 1, column 2 */
+    border-top-left-radius: var(--radius);
+    background-color: var(--accent-1);
+    padding: 13px 20px 5px 20px;
+}
+
+.widget > p {
+    margin: 0;
+}
+
+.widget input {
+    display: inline-block;
+    font-size: 1em;
+    width: 89%;
+    height: var(--search-input-height);
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.15);
+    vertical-align: middle;
+}
+
+.widget button {
+    height: var(--search-input-height);
+    width: var(--search-input-height);
+    margin: 0 0 0 3px;
+    border: none;
+    background-color: transparent;
+    background-image: url(icons/magnifier.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+nav {
+    grid-area: 2 / 1 / 3 / 3; /* span full width on row 2 */
+    background-color: var(--accent-2);
+    font-size: .9em;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+nav li a {
+    color: white;
+    font-weight: bold;
+}
+
+
+.site-announcement {
+    grid-area: 3 / 1 / 4 / 3; /* row 3 across both columns */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+
+section {
+    padding: var(--padding);
+    margin-bottom: 10px;
+}
+
+.section-p-text {
+    padding: var(--section-padding);
+}
+
+main {
+    /* keep semantic element but let its children participate in the container grid */
+    display: contents;
+}
+
+
+/*Main = 11fr*/
+
+
+aside {
+    /* make children act as direct grid items so they align with main's rows */
+    display: contents;
+}
+
+/* Place left-column content (main sections) into specific grid rows/columns */
+.hero   { grid-column: 1 / 2; grid-row: 4 / 6; }
+.bubbles{ grid-column: 1 / 2; grid-row: 6 / 7; }
+.cards  { grid-column: 1 / 2; grid-row: 7 / 8; }
+.help   { grid-column: 1 / 2; grid-row: 8 / 9; }
+.directory { grid-column: 1 / 2; grid-row: 9 / 10; }
+
+/* Place right-column content (aside sections) so today + banners equal hero's height */
+.today   { grid-column: 2 / 3; grid-row: 4 / 5; }
+.banners{ grid-column: 2 / 3; grid-row: 5 / 6; }
+.about  { grid-column: 2 / 3; grid-row: 6 / 7; }
+.article{ grid-column: 2 / 3; grid-row: 7 / 8; }
+.links  { grid-column: 2 / 3; grid-row: 8 / 10; }
+
+/*Aside = keep it 11fr*/
+
+
+.bubbles {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 5fr 1fr;
+    column-gap: 10px;
+}
+
+.bubble {
+    background-color: var(--accent-c2);
+    border-bottom-left-radius: 20px;
+    padding: var(--section-padding);
+    padding-right: 13px;
+    position: relative;
+}
+
+.bubble h1, .about h1, .help h1 {
+    font-size: var(--h1-size);
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: .2em;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.223),
+                 0px 1px 0px rgba(255, 255, 255, 0.365);
+}
+.bubble h1 a {
+    color: inherit;
+    display: contents;
+}
+
+.bubble .more {
+    position: absolute;
+    bottom: 8px;
+    right: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tail {
+    clip-path: polygon(0 0, 100% 100%, 72% 0);
+    background-color: var(--accent-c2);
+    width: 30px;
+    justify-self: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.cards h1, .article h1 {
+    font-size: 1.2em;
+    color: red;
+    border-bottom: 1.5px dotted red;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+}
+
+.article h1 {
+    color: var(--accent-2);
+    border-bottom: 1.5px dotted vaR(--accent-2);
+}
+
+.card-1 {
+    flex: 1;
+    position: relative;
+}
+
+.card-2 {
+    flex: 2;
+    position: relative;
+}
+
+.help {
+    background-color: var(--accent-3);
+    border-top-right-radius: var(--radius);
+    padding: var(--section-padding);
+    display: flex;
+    align-items: flex-start;
+}
+
+.help h1 {
+    flex: 1;
+}
+
+.help .text {
+    flex: 3;
+}
+
+.help details {
+    margin: 0 0 5px 10px;
+    padding: 0;
+    list-style-type: none;    
+}
+
+.help details:hover {
+    cursor:pointer;
+}
+
+.help details > summary::marker {
+    content:'➔ ';
+    color: white;
+    font-size: 1.2em;
+}
+
+.help details[open] > summary::marker {
+    color: var(--accent-2)
+}
+
+.help details p {
+    padding: 2px 0 0 18px;
+}
+
+.help details p:hover {
+    cursor: default;
+}
+
+.directory {
+    background-color: var(--accent-4);
+}
+
+.directory h1 {
+    background-color: var(--accent-2);
+    color: white;
+    padding: var(--section-h1-padding);
+}
+
+
+.today {
+    border-bottom: 1.5px dotted var(--accent-1);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+
+.today .article {
+    display: flex;
+    height: 110px;
+}
+
+.today .article-text {
+    overflow: scroll;
+    flex-grow: 1;
+}
+
+.article-text h1 {
+    border-bottom: none;
+    margin: 0;
+}
+
+.today img {
+    padding: 0 10px 0 0;
+    flex-basis: content;
+    flex-shrink: 1;
+}
+
+.today h1 {
+    color: var(--accent-c1);
+    font-size: var(--h1-size);
+}
+
+.today-text {
+    color: var(--accent-2);
+    font-weight: bold;
+}
+
+#dateElement {
+    color: var(--accent-2);
+}
+
+.today-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 6px;
+}
+
+.today-body {
+    margin-top: 6px;
+}
+
+.banners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about {
+    background-color: var(--accent-2);
+    padding: var(--section-padding);
+    border-bottom-right-radius: var(--radius);
+}
+
+.about h1 {
+    color: white;
+}
+
+
+.links {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: var(--section-padding);
+}
+
+.links div {
+    background-color: var(--accent-b1);
+}
+
+.links div {
+    overflow: scroll;
+    overscroll-behavior: none;
+}
+
+.links .text {
+    padding: var(--section-padding);
+}
+
+.links h1 {
+    background-color: var(--accent-b2);
+    padding: var(--section-h1-padding);
+    position: sticky;
+    top: 0;
+}
+
+
+footer {
+    grid-area: 10 / 1 / 11 / 3;
+    text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: rgb(14, 17, 15);
+        --font-color: white;
+            
+        --base-accent-h: 95;    /* hue (0-360) */
+        --base-accent-s: 80%;    /* saturation */
+        --base-accent-l: 40%;    /* lightness */
+
+        --accent-3: hsl(var(--base-accent-h) calc(var(--base-accent-s) - 30%) calc(var(--base-accent-l) + 10%));
+
+        --accent-b1: rgb(70, 75, 74);
+        --accent-b2: rgb(45, 51, 49);
+        --accent-c1: rgb(255, 173, 91);
+        --accent-c2: rgb(230, 167, 6);
+        
+        header {
+            background-image: url(4u2\ logo\ white.png);
+        }
+    }
+}

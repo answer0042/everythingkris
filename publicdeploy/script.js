@@ -1,3 +1,35 @@
+/*For making tabs functional*/
+let tabs = document.querySelectorAll('.tab');
+let contents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+        let activeTab = e.currentTarget;
+
+        tabs.forEach (inactiveTab => {
+            if (inactiveTab !== activeTab) {
+                inactiveTab.classList.remove('active');
+            }
+        })
+        activeTab.classList.add('active');
+
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+
+        let targetID = activeTab.id.replace('tab', 'tab-content');
+
+        let targetContent = document.getElementById(targetID);
+        targetContent.classList.add('active');
+    });
+});
+
+
+
+
+
+
+
 /* banners template. dont forget comma
 {
     image: 'name',
@@ -20,7 +52,7 @@ const squareBanners = [
     },
     { 
         image: 'clubpenguin',
-        url: 'https://play.cplegacy.com/',
+        url: 'https://cpjourney.net/',
         title: 'Waddle On!'
     },
     { 
@@ -77,7 +109,7 @@ function squareBannersDisplay() {
     // updates img
     const bannerImg = document.getElementById('square-banner-img');
     if (bannerImg) {
-        bannerImg.src = `./banners_sqr/${selected.image}.gif`;
+        bannerImg.src = `banners_sqr/${selected.image}.gif`;
     }
 
     // updates href link
@@ -99,7 +131,7 @@ function bottomBanner1Display() {
     // updates img
     const bottomBannerImg = document.getElementById('bottom-banner-1-img');
     if (bottomBannerImg) {
-        bottomBannerImg.src = `./banners_rec/${selected.image}.gif`;
+        bottomBannerImg.src = `banners_rec/${selected.image}.gif`;
     }
 
     // updates href link
@@ -115,3 +147,4 @@ function bottomBanner1Display() {
 // Start both banner cycles
 squareBannersDisplay();
 bottomBanner1Display();
+
