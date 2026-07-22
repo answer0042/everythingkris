@@ -752,6 +752,10 @@ a:hover {
   box-shadow: 1px 1px 1px #d8dfea89;
 }
 
+.neobors .button_container {
+  height: min-content;
+}
+
 .neobors .profile-pic-container {
   grid-column: 1;
   grid-row: 1 / span 3;
