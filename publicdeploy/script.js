@@ -24,12 +24,6 @@ tabs.forEach(tab => {
     });
 });
 
-
-
-
-
-
-
 /* banners template. dont forget comma
 {
     image: 'name',
