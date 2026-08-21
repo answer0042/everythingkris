@@ -48,9 +48,10 @@ body {
   justify-content: center;
   text-align: justify;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -103,12 +104,12 @@ img {
 /* layout */
 .viewport {
   display: flex;
-  flex-direction: inherit;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  flex-grow: 1;
+  width: var(--vpwidth);
   min-width: var(--vpwidth);
-  max-height: var(--vpheight);
+  max-height: none;
 }
 
 .top {
@@ -151,8 +152,7 @@ img {
   border: var(--border);
   border-style: var(--borderstyle);
   border-top-right-radius: 25px;
-
-  max-height: var(--vpheight);
+  max-height: none;
 }
 
 .main {
@@ -1203,6 +1203,7 @@ button.share::before {
   gap: var(--gap);
   max-width: var(--vpwidth);
   margin-top: 3px;
+  flex-shrink: 0;
 }
 
 .footer .button {
@@ -1222,7 +1223,7 @@ button.share::before {
 }
 
 /*  Links  */
-.asideR a,
+.template-section a,
 .asideL a {
   color: var(--linkcolor);
   font-weight: bold;
@@ -1271,9 +1272,7 @@ button.share::before {
 /* Statuscafe */
 
 .statuscafe {
-  background-color: white;
-  flex: 1;
-  flex-grow: 1;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1284,23 +1283,39 @@ button.share::before {
 }
 
 #statuscafe {
+  font-family: monospace;
   align-content: center;
   text-align: left;
   width: 100%;
   height: 100%;
   padding: 1em;
-  color: black;
+  color: rgb(255, 250, 226);
+}
+
+#statuscafe a {
+  text-decoration: none;
 }
 
 #statuscafe-username {
   color: rgb(171, 166, 183);
 }
 
-#statuscafe-username a::after {
-  content: ' says...';
+
+#statuscafe-username a::after, #statuscafe-username a::before {
   color: var(--secondarycolor);
   font-weight: lighter;
 }
+
+#statuscafe-username a::before {
+  content: '<';
+}
+
+
+#statuscafe-username a::after {
+  content: '>';
+}
+
+
 
 #statuscafe-username a {
   font-weight: bold;
@@ -1405,10 +1420,6 @@ button.share::before {
   .socbutton img {
     object-fit: contain;
     height: 100%;
-  }
-
-  .main_frame {
-    height: 88%;
   }
 
   .asideR,
