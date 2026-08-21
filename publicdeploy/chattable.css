@@ -112,6 +112,9 @@ body {
 .msgWrapper:has(.allMessages[uid="OmnLmR9RuTTHr8wbNfNdHKqgUgi2"]):before {
   background-image: url(https://everythingkris.neocities.org/images/smileypfp.jpg);
 }
+.msgWrapper:has(.allMessages[uid="xTVC3D5UJwgtWLJki9U2dzn6ogg2"]):before {
+  background-image: url(https://everythingkris.neocities.org/images/joawpfp.jpg);
+}
 .recieved:after {
  content: " ";
  background-color: inherit;
