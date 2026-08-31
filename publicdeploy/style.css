@@ -1163,17 +1163,23 @@ button.share::before {
   grid-column: 1/1;
 }
 
-.kristv .watch-info .watch-description .uploader-info {
+.kristv .watch-info .watch-description .uploader-info, .stats .rating-counter {
   font-size: 0.9em;
   color: grey;
   margin-bottom: 2px;
 }
 
-.kristv .watch-info .stats {
-  grid-column: 2/2;
-  border: 1px solid blue;
+.kristv .watch-info .stats .rating-bar {
+  border-radius: 5px;
+  height: 3px;
+  width: 100%;
+  background-image: linear-gradient(90deg, green 100%);
 }
 
+.kristv .watch-info .stats .rating-counter {
+  font-size: 0.9em;
+  margin-top: 2px;
+}
 
 
 /* Aside R*/
