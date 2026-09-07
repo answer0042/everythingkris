@@ -16,6 +16,7 @@
   --black: rgb(25, 27, 32);
   --asideLheight500: calc(var(--vpheight) * .2);
   --main_frame_height: 81vh;
+  --logbooklineheight: 1.2em;
 }
 
 * {
@@ -497,25 +498,27 @@ p+p {
       #ffc5d2 33px,
       #ffc5d2 33px,
       transparent 34px),
-    linear-gradient(#eee 1px,
-      transparent 1px);
-  background-size: 100% 1em;
-  padding: 3.2em 3.2em 3.2em calc(var(--margin) * 3);
-  line-height: 1em;
+    linear-gradient(#f7f7f7 1px,
+      transparent 0px);
+  background-size: 100% var(--logbooklineheight);
+  padding: calc(var(--logbooklineheight)* 3.1);
+  padding-left: calc(var(--margin) * 3.5);
+  line-height: var(--logbooklineheight);
 }
+
 
 .log .bigtitle {
   background-image: url();
-  margin-bottom: 1em;
+  margin-bottom: var(--logbooklineheight);
 }
 
 .log p {
-  margin-top: 1em;
+  margin-top: var(--logbooklineheight);
 }
 
 .log .heading {
   display: flex;
-  font-size: 1.2em;
+  font-size: 1.3em;
   width: 100%;
   justify-content: space-between;
   font-weight: bold;
@@ -530,7 +533,7 @@ p+p {
 }
 
 .log .entry {
-  margin-bottom: 3em;
+  margin-bottom: calc(var(--logbooklineheight) * 2);
 }
 
 
