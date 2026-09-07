@@ -454,7 +454,26 @@ p+p {
   padding: var(--padding);
 }
 
+.article .flavortext {
+  margin-bottom: 1.5em;
+  font-size: .8em;
+}
 
+.article p.caption {
+  color: rgb(159, 159, 159);
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+.article p.hashtags {
+  color: #36c;
+}
+
+.article p.hashtags a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
 
 /*Log*/
 
@@ -1328,9 +1347,6 @@ button.share::before {
   color: var(--secondarycolor);
 }
 
-/* ads */
-
-
 /* Media queries */
 
 @media (prefers-color-scheme: dark) {
@@ -1342,7 +1358,7 @@ button.share::before {
 }
 
 /* tablet idk */
-@media (width<=1024px) {
+@media (width<=1400px) {
   :root {
     --vpwidth: 90vw;
   }
@@ -1355,7 +1371,7 @@ button.share::before {
 }
 
 /* phone */
-@media (width<=500px) {
+@media (width<=800px) {
   :root {
     --vpwidth: 100vw;
     --vpheight: 100vh;
