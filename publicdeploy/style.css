@@ -33,6 +33,13 @@
   background-color: var(--secondarycolor);
 }
 
+/*FONTS================================*/
+
+@font-face {
+  font-family: "Dudu";
+  src: url("fonts/Dudu_Calligraphy.ttf") format("truetype");
+}
+
 /* ========== Global ========== */
 body {
   color: black;
@@ -135,7 +142,8 @@ img {
   border-style: var(--borderstyle);
 }
 
-.bottom_banners_container .banner_space, .bottom_banners_container a {
+.bottom_banners_container .banner_space,
+.bottom_banners_container a {
   height: 51px;
   width: 100%;
   object-fit: fill;
@@ -259,7 +267,7 @@ img {
 
 .main_frame {
   display: grid;
-  width:  auto;
+  width: auto;
   height: var(--main_frame_height);
   background-color: white;
   border: var(--border);
@@ -478,7 +486,8 @@ p+p {
 /*Log*/
 
 .log {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Dudu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
   background-image: linear-gradient(90deg,
       transparent 29px,
       #abced4 30px,
@@ -488,25 +497,25 @@ p+p {
       #ffc5d2 33px,
       #ffc5d2 33px,
       transparent 34px),
-    linear-gradient(#eee .1em,
-      transparent .1em);
-  background-size: 100% 1.5em;
+    linear-gradient(#eee 1px,
+      transparent 1px);
+  background-size: 100% 1em;
   padding: 3.2em 3.2em 3.2em calc(var(--margin) * 3);
-  line-height: 1.5em;
+  line-height: 1em;
 }
 
 .log .bigtitle {
   background-image: url();
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 
 .log p {
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 .log .heading {
   display: flex;
-  font-size: 1.1em;
+  font-size: 1.2em;
   width: 100%;
   justify-content: space-between;
   font-weight: bold;
@@ -1161,8 +1170,8 @@ button.share {
 
 button.share::before {
   content: none;
-  width:0;
-  height:0;
+  width: 0;
+  height: 0;
 }
 
 .kristv .visit-counter {
@@ -1182,7 +1191,8 @@ button.share::before {
   grid-column: 1/1;
 }
 
-.kristv .watch-info .watch-description .uploader-info, .stats .rating-counter {
+.kristv .watch-info .watch-description .uploader-info,
+.stats .rating-counter {
   font-size: 0.9em;
   color: grey;
   margin-bottom: 2px;
@@ -1297,24 +1307,40 @@ button.share::before {
 /* Statuscafe */
 
 .statuscafe {
-  background-color: black;
+  background-color: rgb(255, 234, 94);
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-  border-top-right-radius: 25px;
-  border: var(--border);
-  border-style: var(--innerborderstyle);
+  transform: rotate(3deg);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.2s ease-in;
+  transition: 0.2s ease-out;
+}
+
+.statuscafe:hover {
+  transform: scale(105%) rotate(-2deg);
+}
+
+.statuscafe::before {
+  content: '';
+  transform: rotate(-3deg);
+  background-image: url(icons/pin.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: -10px;
+  top: -20px;
 }
 
 #statuscafe {
-  font-family: monospace;
+  font-family: 'Dudu','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   align-content: center;
   text-align: left;
-  width: 100%;
-  height: 100%;
-  padding: 1em;
-  color: rgb(255, 250, 226);
+  padding: 2em;
+  color: black;
 }
 
 #statuscafe a {
@@ -1322,25 +1348,15 @@ button.share::before {
 }
 
 #statuscafe-username {
-  color: rgb(171, 166, 183);
+  color: rgb(109, 109, 109);
 }
 
 
-#statuscafe-username a::after, #statuscafe-username a::before {
+#statuscafe-username a::after,
+#statuscafe-username a::before {
   color: var(--secondarycolor);
   font-weight: lighter;
 }
-
-#statuscafe-username a::before {
-  content: '<';
-}
-
-
-#statuscafe-username a::after {
-  content: '>';
-}
-
-
 
 #statuscafe-username a {
   font-weight: bold;
