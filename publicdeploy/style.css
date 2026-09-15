@@ -112,6 +112,21 @@ textarea {
   font-weight: bold;
 }
 
+.pink {
+  color: var(--secondarycolor);
+}
+
+.mini-title {
+  text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.6), 0 -0.5px 0 rgba(0, 0, 0, 0.3);
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.text.tab.pink {
+  color: var(--secondarycolor);
+}
+
 /* effects */
 .div-inset {
   border: var(--border);
@@ -307,6 +322,7 @@ textarea {
 .tabs h2 {
   position: relative;
   top: -4px;
+  text-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.6), 0 -0.5px 0 rgba(0, 0, 0, 0.3);
 }
 
 .tabs .active h2 {
@@ -323,7 +339,7 @@ textarea {
 
 .tab.active {
   background-color: rgb(255, 255, 255);
-  color: var(--secondarycolor);
+  color: var(--linkcolor);
   height: 16px;
   filter: none;
   position: relative;
@@ -501,7 +517,8 @@ p+p {
   font-size: .8em;
 }
 
-.article p.caption, .article .footer {
+.article p.caption,
+.article .footer {
   color: rgb(159, 159, 159);
   font-style: italic;
   text-transform: uppercase;
@@ -539,7 +556,7 @@ p+p {
   padding-top: 50px;
   text-align: right;
   width: 100%;
-  justify-content:end;
+  justify-content: end;
 }
 
 /*Log*/
@@ -1314,6 +1331,46 @@ button.share::before {
   flex-direction: column;
 }
 
+.changelog-box {
+  height: 80px;
+  overflow-y: scroll;
+  padding: 0;
+}
+
+.changelog table {
+  border-collapse: collapse;
+  font-size: 1em;
+  font-family: dudu;
+  line-height: 1em;
+  margin: 0;
+  background-color: rgb(65, 65, 65);
+  color: rgb(206, 206, 206);
+}
+
+.changelog td {
+  padding: 3px;
+  border: 0;
+}
+
+.changelog td:first-child {
+  font-weight: bold;
+  padding: 5px;
+  width: 1em;
+  vertical-align: top;
+  writing-mode: vertical-lr;
+  border-right: 1px solid (0, 0, 0, 0.14);
+}
+
+.changelog tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.136);
+}
+
+.changelog tr:first-child {
+  background-color: rgb(239, 239, 239);
+  color: black;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.696);
+}
+
 .template-section {
   padding: 0.3em 0;
   text-align: left;
@@ -1418,13 +1475,14 @@ button.share::before {
   align-items: center;
   align-content: center;
   transform: rotate(3deg);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.47);
   transition: 0.2s ease-in;
   transition: 0.2s ease-out;
 }
 
 .statuscafe:hover {
   transform: scale(105%) rotate(-2deg);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.261);
 }
 
 .statuscafe::before {
@@ -1441,7 +1499,7 @@ button.share::before {
 }
 
 #statuscafe {
-  font-family: 'Dudu','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Dudu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   align-content: center;
   text-align: left;
   padding: 2em;
