@@ -1407,10 +1407,6 @@ button.share::before {
   text-align: left;
 }
 
-.little-web-planet-dark {
-  object-fit: contain;
-}
-
 .icon {
   display: inline-block;
   height: 14px;
