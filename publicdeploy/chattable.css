@@ -119,7 +119,7 @@ body {
   background-image: url(chattable_pfps/dave.png);
 }
 .msgWrapper:has(.allMessages[uid="16S7EtUaAZXBn6ACGO8ACMQlSJ72"]):before {
-  background-image: url(https://everythingkris.neocoties.org/chattable-pfps/vamp.gif);
+  background-image: url(https://everythingkris.neocoties.org/chattable_pfps/vamp.gif);
 }
 
 .recieved:after {
