@@ -116,10 +116,10 @@ body {
   background-image: url(https://everythingkris.neocities.org/images/joawpfp.jpg);
 }
 .msgWrapper:has(.allMessages[uid="snnWkJidVsUD15gyc6i5DC6vk6L2"]):before {
-  background-image: url(chattable_pfps/dave.png);
+  background-image: url(https://everythingkris.neocities.org/chattable_pfps/dave.png);
 }
 .msgWrapper:has(.allMessages[uid="16S7EtUaAZXBn6ACGO8ACMQlSJ72"]):before {
-  background-image: url(https://everythingkris.neocoties.org/chattable_pfps/vamp.gif);
+  background-image: url(https://everythingkris.neocities.org/chattable_pfps/vamp.gif);
 }
 
 .recieved:after {
