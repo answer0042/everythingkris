@@ -95,7 +95,7 @@ body {
   transition: margin-bottom 250ms ease-in;
   transition-delay: 500ms;
 }
-.msgWrapper:has(.recieved):beforeh {
+.msgWrapper:has(.recieved):before {
   margin-left: 0;
   margin-right: 15px;
 }
@@ -120,6 +120,9 @@ body {
 }
 .msgWrapper:has(.allMessages[uid="16S7EtUaAZXBn6ACGO8ACMQlSJ72"]):before {
   background-image: url(https://everythingkris.neocities.org/images/vamp.gif);
+}
+.msgWrapper:has(.allMessages[uid="1VWyma45fvV46cweyYgdxnDNpmg1"]):before {
+  background-image: url(https://everythingkris.neocities.org/images/dman.gif);
 }
 
 .recieved:after {

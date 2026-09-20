@@ -404,7 +404,7 @@ textarea {
 .tabs .search-bar input {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1em;
-  width: 80%;
+  width: 70%;
 }
 
 /*aside L footer*/
@@ -1539,6 +1539,10 @@ button.share::before {
 
 #statuscafe a {
   text-decoration: none;
+}
+
+#statuscafe a::after {
+  content: ' scribbled...';
 }
 
 #statuscafe-username {
