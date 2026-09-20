@@ -95,7 +95,7 @@ body {
   transition: margin-bottom 250ms ease-in;
   transition-delay: 500ms;
 }
-.msgWrapper:has(.recieved):before {
+.msgWrapper:has(.recieved):beforeh {
   margin-left: 0;
   margin-right: 15px;
 }
