@@ -4,7 +4,7 @@
   --fontsize: 8pt;
   --vpwidth: 55vw;
   --vpheight: 95vh;
-  --border: 2px rgb(215, 215, 215);
+  --border: 2px var(--mainbackground);
   --borderstyle: outset;
   --innerborderstyle: inset;
   --mainbackground: rgb(219, 219, 219);
