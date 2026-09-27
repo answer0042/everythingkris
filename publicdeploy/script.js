@@ -1,26 +1,29 @@
-/*For making tabs functional*/
-let tabs = document.querySelectorAll('.tab');
-let contents = document.querySelectorAll('.tab-content');
+/* For making tabs functional */
+const tabButtons = document.querySelectorAll('.tab');
+const tabPanels = document.querySelectorAll('.tab-content');
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', e => {
-        let activeTab = e.currentTarget;
+tabButtons.forEach((tabButton) => {
+    tabButton.addEventListener('click', (event) => {
+        const activeTabButton = event.currentTarget;
 
-        tabs.forEach (inactiveTab => {
-            if (inactiveTab !== activeTab) {
-                inactiveTab.classList.remove('active');
+        tabButtons.forEach((inactiveTabButton) => {
+            if (inactiveTabButton !== activeTabButton) {
+                inactiveTabButton.classList.remove('active');
             }
-        })
-        activeTab.classList.add('active');
-
-        contents.forEach(content => {
-            content.classList.remove('active');
         });
 
-        let targetID = activeTab.id.replace('tab', 'tab-content');
+        activeTabButton.classList.add('active');
 
-        let targetContent = document.getElementById(targetID);
-        targetContent.classList.add('active');
+        tabPanels.forEach((panel) => {
+            panel.classList.remove('active');
+        });
+
+        const targetPanelId = activeTabButton.id.replace('tab', 'tab-content');
+        const targetPanel = document.getElementById(targetPanelId);
+
+        if (targetPanel) {
+            targetPanel.classList.add('active');
+        }
     });
 });
 
@@ -32,43 +35,43 @@ tabs.forEach(tab => {
 }
 */
 
-/* SQUARE BANNER ON ASIDE R */
-const squareBanners = [
-    { 
+/* SQUARE BANNER ON SIDEBAR RIGHT */
+const squareBannerItems = [
+    {
         image: 'rm94',
         url: 'https://rm94.neocities.org',
         title: 'Visit Retromaster94!'
     },
-    { 
+    {
         image: 'aftv',
         url: 'https://www.youtube.com/watch?v=rw51ICGBEQw',
         title: 'scared & impaired. tonight at 8/7c'
     },
-    { 
+    {
         image: 'clubpenguin',
         url: 'https://cpjourney.net/',
         title: 'Waddle On!'
     },
-    { 
+    {
         image: 'poptropica',
         url: 'https://web.archive.org/web/20130517102622/http://www.poptropica.com/',
         title: 'I miss you Poptropica!'
     }
 ];
 
-/* RECTANGLE BANNER (BOTTOM BANNER 1) */
-const bottomBanner1 = [
-    { 
+/* RECTANGLE BANNER (BOTTOM BANNER) */
+const bottomBannerItems = [
+    {
         image: 'roblox',
-        url: 'https://web.archive.org/web/20100309080934/http://www.roblox.com/',
+        url: 'https://web.archive.org/web/20100309080934/http://www.roblox.com/'
     },
-    { 
+    {
         image: 'goto',
-        url: 'https://thehistoryoftheweb.com/goto-forgotten-search-engine/',
+        url: 'https://thehistoryoftheweb.com/goto-forgotten-search-engine/'
     },
-    { 
+    {
         image: 'N3O',
-        url: 'http://n3onexus.neocities.org/',
+        url: 'http://n3onexus.neocities.org/'
     }
     // Add more banners here
 ];
@@ -84,61 +87,56 @@ function shuffleArray(array) {
 
 // Separate queues for each banner type
 let squareBannerQueue = [];
-let bottomBanner1Queue = [];
+let bottomBannerQueue = [];
 
 function getBannerFromQueue(queue, bannerArray) {
-    // when queue over reshuffle
     if (queue.length === 0) {
-        queue = shuffleArray([...bannerArray]); //new shuffle
+        queue = shuffleArray([...bannerArray]);
     }
-    return queue.pop(); //next banner in queue
+    return queue.pop();
 }
 
 // SQUARE BANNER DISPLAY
 function squareBannersDisplay() {
-    const selected_banner = getBannerFromQueue(squareBannerQueue, squareBanners);
-    squareBannerQueue = squareBannerQueue.length === 0 ? shuffleArray([...squareBanners]) : squareBannerQueue;
+    const selectedBanner = getBannerFromQueue(squareBannerQueue, squareBannerItems);
+    squareBannerQueue = squareBannerQueue.length === 0 ? shuffleArray([...squareBannerItems]) : squareBannerQueue;
     const selected = squareBannerQueue.pop();
-    
-    // updates img
-    const bannerImg = document.getElementById('square-banner-img');
-    if (bannerImg) {
-        bannerImg.src = `banners_sqr/${selected.image}.gif`;
+
+    const bannerImage = document.getElementById('square-banner-image');
+    if (bannerImage) {
+        bannerImage.src = `banners_sqr/${selected.image}.gif`;
     }
 
-    // updates href link
     const bannerLink = document.getElementById('square-banner-link');
     if (bannerLink) {
         bannerLink.href = selected.url;
         bannerLink.target = '_blank';
     }
-    
+
     setTimeout(squareBannersDisplay, 20000);
 }
 
-// BOTTOM BANNER 1 DISPLAY
-function bottomBanner1Display() {
-    const selected_banner = getBannerFromQueue(bottomBanner1Queue, bottomBanner1);
-    bottomBanner1Queue = bottomBanner1Queue.length === 0 ? shuffleArray([...bottomBanner1]) : bottomBanner1Queue;
-    const selected = bottomBanner1Queue.pop();
-    
-    // updates img
-    const bottomBannerImg = document.getElementById('bottom-banner-1-img');
-    if (bottomBannerImg) {
-        bottomBannerImg.src = `banners_rec/${selected.image}.gif`;
+// BOTTOM BANNER DISPLAY
+function bottomBannerDisplay() {
+    const selectedBanner = getBannerFromQueue(bottomBannerQueue, bottomBannerItems);
+    bottomBannerQueue = bottomBannerQueue.length === 0 ? shuffleArray([...bottomBannerItems]) : bottomBannerQueue;
+    const selected = bottomBannerQueue.pop();
+
+    const bottomBannerImage = document.getElementById('bottom-banner-image');
+    if (bottomBannerImage) {
+        bottomBannerImage.src = `banners_rec/${selected.image}.gif`;
     }
 
-    // updates href link
-    const bottomBannerLink = document.getElementById('bottom-banner-1-link');
+    const bottomBannerLink = document.getElementById('bottom-banner-link');
     if (bottomBannerLink) {
         bottomBannerLink.href = selected.url;
         bottomBannerLink.target = '_blank';
     }
-    
-    setTimeout(bottomBanner1Display, 20000);
+
+    setTimeout(bottomBannerDisplay, 20000);
 }
 
 // Start both banner cycles
 squareBannersDisplay();
-bottomBanner1Display();
+bottomBannerDisplay();
 
