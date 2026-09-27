@@ -1,0 +1,232 @@
+:root {
+    --top-margin: 60px;
+    --asideW: 300px;
+}
+
+/*FONTS---------------------------------------------------------------------*/
+
+/*HEADING*/
+@font-face {
+    font-family: 'NK57 Condensed';
+    src: url('fonts/NK57 Monospace Cd Bd.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/*BODY*/
+@font-face {
+    font-family: 'Funnel Sans';
+    src: url('fonts/FunnelSans-Regular.woff2') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* BOLD (700) */
+@font-face {
+    font-family: 'Funnel Sans Bold';
+    src: url('fonts/FunnelSans-ExtraBold.woff2') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/*FONTS END----------------------------------------------------------*/
+
+body {
+    display: grid;
+    grid-template-columns: 1;
+    font-family: 'Funnel Sans', 'Helvetica', sans-serif;
+    font-size: 10pt;
+    margin: 0 70px;
+    background-color: white;
+}
+
+h2,
+h3 {
+    line-height: 1;
+}
+
+h1 {
+    font-family: 'NK57 Condensed', 'Courier New', Courier, monospace;
+    font-size: 30pt;
+    line-height: 1;
+    margin: 0 0 8px 0;
+}
+
+p {
+    margin-top: 0;
+
+}
+
+/*MASONRY LAYOUT----------------------------------------*/
+main {
+    grid-column: 2;
+    padding: var(--top-margin) 0;
+    --item-width: 10rem;
+    --gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: var(--gap);
+}
+
+.masonry-column {
+    min-width: 0;
+}
+
+article {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+}
+
+main img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.footer img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    align-self: center;
+}
+
+
+/*MASONRY LAYOUT CONTENTS--------------------------*/
+article img.thumbnail {
+    margin-bottom: 16px;
+}
+
+article .article-header {
+    display: flex;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+article h2,
+article h3 {
+    font-family: 'NK57 Condensed', 'Courier New', Courier, monospace;
+    font-size: 12pt;
+    margin: 0 0 5px 0;
+}
+
+article h3 {
+    color: lightgray;
+    text-align: end;
+}
+
+article .article-description {
+    font-family: 'Funnel Sans', 'Helvetica', sans-serif;
+    margin-right: 20px
+}
+
+article .more {
+    content: '';
+    background-image: url(icons/open.png);
+    width: 16px;
+    height: 16px;
+    color: lightgray;
+    background-size: contain;
+}
+
+
+/*article styling end*/
+aside {
+    box-sizing: border-box;
+    position: fixed;
+    padding-right: 60px;
+    top: var(--top-margin);
+    width: var(--asideW);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85vh;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li.tab {
+    padding: 3px 6px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-family: 'Funnel Sans';
+}
+
+nav ul li.tab.active {
+    background-color: black;
+    color: white;
+    font-family: 'Funnel Sans Bold';
+
+}
+
+
+/*MEDIA QUERIES---------------------------------------------*/
+/**/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+        display: block;
+        margin: 0 30px;
+    }
+    aside {
+        top: 0;
+        padding: var(--top-margin) 0 20px 0;
+        position: sticky;
+        width: auto;
+        height: auto;
+        background-color: white;
+    }
+    nav ul {
+        display: flex;
+        gap: unset;
+    }
+    section.footer {
+        display: none;
+    }
+    main {
+        padding: 0
+    }
+}
+
+@media (min-width: 600px) {
+    aside {
+        position: sticky;
+        display: flex;
+        margin-top: var(--top-margin);
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        grid-template-columns: var(--asideW) 3fr;
+    }
+    aside {
+        position: fixed;
+        display: flex;
+        max-height: 100%;
+        margin-top: 0;
+    }
+    main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    main {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
