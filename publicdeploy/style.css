@@ -1645,7 +1645,7 @@ button.share::before {
 
 #statuscafe a {
   text-decoration: none;
-  -webkit-text-stroke: 2px palegoldenrod;
+  -webkit-text-stroke: 2px var(--sticky-color);
 
 }
 
