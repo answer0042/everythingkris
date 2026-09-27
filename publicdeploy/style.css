@@ -1413,7 +1413,7 @@ button.share::before {
   paint-order: stroke fill;
   text-decoration: none;
   -webkit-text-stroke: 2px var(--mainbackground);
-  color:blueviolet
+  color:#36c
 }
 
 .bulletin-box {
